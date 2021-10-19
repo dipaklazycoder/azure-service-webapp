@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Azure IVY 1</title>
+
+</head>
+<body>
+<h1 th:text="'Hello ' + ${name}+ ', Current Time is '+ ${#dates.format(#dates.createNow(),'HH:mm')}">
+
+</h1>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="https://spicy-dotnet.blogspot.com/">Dipak Blog</a>
+</nav>
+<h2>Products</h2>
+<table>
+  <thead>
+  <tr class="headings">
+    <th class="column-title" >ID</th>
+    <th class="column-title" >Name</th>
+    <th class="column-title" >Image</th>
+    <th class="column-title" >Thumbnail</th>
+  </tr>
+  </thead>
+  <tbody>
+<tr th:each="product: ${products}">
+  <td th:text="${product.id}" />
+  <td th:text="${product.name}" />
+  <td><img th:src="@{${product.imagePath}}" class="card img-fluid" style="width:300px" alt="" /></td>
+  <td><img th:src="@{${product.thumbnailPath}}" class="card img-fluid" style="width:50px" alt="" /></td>
+</tr>
+  </tbody>
+</table>
+
+<!-- /.container -->
+<script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+</body>
+</html>
